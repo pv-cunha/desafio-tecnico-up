@@ -1,46 +1,25 @@
-# Getting Started with Create React App
+<svg width="112" height="31" viewBox="0 0 255 71" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M34.2179 37.1841L34.2179 24.8862L0.670548 37.5239H0.600922L0.600922 50.1424H0.670548L34.2179 62.7801L34.2179 50.463L17.0201 43.8075L34.2179 37.1841Z" fill="#8257E6"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M220.825 62.1341L220.825 49.8362L238.01 43.2192L220.825 36.6022L220.825 24.3043L254.328 36.9356H254.411L254.411 49.5669H254.328L220.825 62.1341ZM206.438 6.91541L186.734 70.9824H198.431L218.135 6.91541L206.438 6.91541Z" fill="#8257E6"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M83.5155 22.5575C86.8436 26.2643 88.5949 31.1508 88.3894 36.157L88.3894 63.4458H76.6921L76.6921 38.664C76.8282 35.9033 75.9588 33.1881 74.2489 31.034C73.4475 30.0888 72.4451 29.3399 71.317 28.8435C70.1889 28.3471 68.9645 28.1161 67.7356 28.1679C60.41 28.1679 56.7473 33.3144 56.7473 43.6076L56.7473 63.4458H45.05L45.05 18.6463H56.7473L56.7473 22.6922C58.5847 20.8825 60.7675 19.472 63.162 18.547C65.5565 17.622 68.1122 17.2019 70.6726 17.3126C73.0585 17.2104 75.4384 17.6254 77.6533 18.5299C79.8681 19.4344 81.8667 20.8076 83.5155 22.5575Z" fill="#E1E1E6"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M100.336 0.0154419L100.336 64.0825H112.034L112.034 0.0154419L100.336 0.0154419Z" fill="#E1E1E6"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M175.194 61.7304H165.434L155.863 35.3393L146.204 61.7304H136.456L120.056 16.8476H132.557L141.773 43.6875L151.268 16.8476L160.395 16.8476L169.89 43.7773L179.106 16.8476L191.607 16.8476L175.194 61.7304Z" fill="#E1E1E6"></path></g><defs><clipPath id="clip0"><rect width="255" height="71" fill="white"></rect></clipPath></defs></svg>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# :rocket: Library
 
-## Available Scripts
+### Library
 
-In the project directory, you can run:
+## :bookmark_tabs: About
 
-### `npm start`
+> Sistema para buscar livros disponíveis na API do Google Books.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## :mortar_board: Developer
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+_Paulo Victor Vieira Cunha_
 
-### `npm test`
+- [github](https://github.com/pv-cunha)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
+
+### `npm install`
+
+### `npm run dev`
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Compila o aplicativo para produção na pasta `build`.<br>
