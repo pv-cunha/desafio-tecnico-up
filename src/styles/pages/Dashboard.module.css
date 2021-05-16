@@ -1,0 +1,15 @@
+.books {
+  margin-top: 1.5rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 40rem) {
+  .books {
+    grid-template-columns: 1fr 1fr;
+  }
+}

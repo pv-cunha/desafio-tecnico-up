@@ -8,7 +8,7 @@ const apiClient = axios.create({
 
 const create = () => {
   const getVolumes = (text: string) =>
-    apiClient.get(`/volumes?q=${text}&key=${KEY}&startIndex=0&maxResults=5`);
+    apiClient.get(`/volumes?q=${text}&key=${KEY}&startIndex=0&maxResults=6`);
 
   return { getVolumes };
 };
