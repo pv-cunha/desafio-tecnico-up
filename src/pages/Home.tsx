@@ -17,7 +17,7 @@ const Home: React.FC = () => {
           </p>
           <p className="text-center lead">
             Ir para{' '}
-            <Link to="/profs">
+            <Link to="/books">
               <i className="far fa-hand-point-right"></i> Biblioteca
             </Link>
           </p>
