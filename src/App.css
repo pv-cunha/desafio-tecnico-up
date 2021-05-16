@@ -199,21 +199,6 @@ img {
   }
 }
 
-.loading {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 10px solid var(--purple-color);
-  border-right-color: transparent;
-  animation: loading 1s infinite;
-}
-
-@keyframes loading {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @media (max-width: 40rem) {
   .mainContainer {
     margin-top: 1rem;

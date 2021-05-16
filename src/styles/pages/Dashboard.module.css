@@ -20,6 +20,6 @@
 
 @media (max-width: 40rem) {
   .books {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
