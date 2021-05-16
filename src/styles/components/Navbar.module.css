@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.7rem 2rem;
+
+  position: fixed;
+  width: 100%;
+  height: 4rem;
+  top: 0;
+  z-index: 10;
+  background: var(--purple-color);
+
+  color: #fff;
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.navbar h1 i {
+  margin-right: 1rem;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.nav ul {
+  display: flex;
+}
+
+.nav a {
+  color: #fff;
+
+  border-radius: 0.2rem;
+
+  padding: 0.5rem;
+
+  margin: 0 0.5rem;
+}
+
+.nav .active {
+  box-shadow: 0 0 0 3px #eee;
+  background: #fff;
+  color: var(--purple-color);
+  border-color: var(--purple-color);
+}
+
+.nav a:hover {
+  box-shadow: 0 0 0 3px #eee;
+  background: #fff;
+  color: var(--purple-color);
+  border-color: var(--purple-color);
+}

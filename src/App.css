@@ -1,5 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #003699;
+  --dark-color: #333333;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+  --purple-color: #5705a5;
+  --blue-dark: #3f3ffc;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+
+  background-color: #fff;
+  color: #333;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+
+  padding-top: 4rem;
+
+  min-height: 100vh;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--purple-color);
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 60rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+.mainContainer {
+  margin-top: 2rem;
+}
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1;
+  font-size: 3rem;
+
+  margin: 1rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--purple-color);
+
+  position: absolute;
+  bottom: 5px;
+  left: -5px;
+  z-index: -1;
+
+  border-radius: 0.2rem;
+}
+
+/* Text Styles*/
+.x-large {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.large {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-dark {
+  color: var(--dark-color);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+/* Padding */
+.p {
+  padding: 0.5rem;
+}
+.p-1 {
+  padding: 1rem;
+}
+.p-2 {
+  padding: 2rem;
+}
+.p-3 {
+  padding: 3rem;
+}
+.py {
+  padding: 0.5rem 0;
+}
+.py-1 {
+  padding: 1rem 0;
+}
+.py-2 {
+  padding: 2rem 0;
+}
+.py-3 {
+  padding: 3rem 0;
+}
+
+.ps {
+  padding: 0 0.5rem;
+}
+
+/* Margin */
+.m {
+  margin: 0.5rem;
+}
+.m-1 {
+  margin: 1rem;
+}
+.m-2 {
+  margin: 2rem;
+}
+.m-3 {
+  margin: 3rem;
+}
+.my {
+  margin: 0.5rem 0;
+}
+.my-1 {
+  margin: 1rem 0;
+}
+.my-2 {
+  margin: 2rem 0;
+}
+.my-3 {
+  margin: 3rem 0;
+}
+
+/* Animation */
+
+.animeLeft {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: animeLeft 0.3s forwards;
+}
+
+@keyframes animeLeft {
+  to {
+    opacity: 1;
+    transform: initial;
+  }
+}
+
+.loading {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 10px solid var(--purple-color);
+  border-right-color: transparent;
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 40rem) {
+  .mainContainer {
+    margin-top: 1rem;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .p-3 {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .title::after {
+    display: none;
+  }
 }
