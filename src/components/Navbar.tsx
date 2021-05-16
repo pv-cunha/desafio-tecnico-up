@@ -1,8 +1,20 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import styles from '../styles/components/Navbar.module.css';
+import useMedia from '../hooks/useMedia';
 
 const Navbar: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] =
+    React.useState<boolean>(false);
+
+  const mobile = useMedia('(max-width: 40rem)');
+
+  const { pathname } = useLocation();
+
+  React.useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   return (
     <div className={styles.navbar}>
       <h1>
@@ -10,7 +22,20 @@ const Navbar: React.FC = () => {
         Library
       </h1>
       <div className={styles.wrapper}>
-        <nav className={styles.nav}>
+        {mobile && (
+          <button
+            aria-label="Menu"
+            className={`${styles.mobileButton} ${
+              isMobileMenuOpen && styles.mobileButtonActive
+            }`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          ></button>
+        )}
+        <nav
+          className={`${mobile ? styles.navMobile : styles.nav} ${
+            isMobileMenuOpen && styles.navMobileActive
+          }`}
+        >
           <ul>
             <li>
               <NavLink to="/" end activeClassName={styles.active}>
