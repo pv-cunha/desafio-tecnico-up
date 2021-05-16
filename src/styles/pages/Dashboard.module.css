@@ -1,11 +1,21 @@
+.container {
+  margin-top: 0.5rem;
+}
+
 .books {
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   align-items: center;
   justify-content: center;
+}
+
+.btnPages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media (max-width: 40rem) {

@@ -1,20 +1,23 @@
 import React from 'react';
 import styles from '../styles/components/Searchbar.module.css';
+import Button from './Button';
 
 interface SearchbarProps {
   inputText: string;
+  loading?: boolean;
   handleChange: ({ target }: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  handleSubmit: () => Promise<void>;
 }
 
 const Searchbar: React.FC<SearchbarProps> = ({
   inputText,
   handleChange,
   handleSubmit,
+  loading,
 }) => {
   return (
     <div className={styles.searchBar}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <div className={styles.form}>
         <input
           type="text"
           placeholder="Digite aqui o título do livro ..."
@@ -22,10 +25,10 @@ const Searchbar: React.FC<SearchbarProps> = ({
           value={inputText}
           onChange={handleChange}
         />
-        <button type="submit" className={styles.button}>
+        <Button loading={loading} onClick={handleSubmit}>
           Pesquisar
-        </button>
-      </form>
+        </Button>
+      </div>
     </div>
   );
 };
