@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../styles/components/BookItem.module.css';
 import closeImg from '../assets/close.svg';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
 interface ImagesLinks {
   smallThumbnail: string;
@@ -48,11 +49,13 @@ const BookItem: React.FC<BookPros> = ({ book }) => {
           </>
         )}
       </div>
-      <img
-        className={styles.img}
-        src={book.volumeInfo.imageLinks?.thumbnail}
-        alt={book.volumeInfo.title}
-      />
+      <Link to={`/books/${book.id}`}>
+        <img
+          className={styles.img}
+          src={book.volumeInfo.imageLinks?.thumbnail}
+          alt={book.volumeInfo.title}
+        />
+      </Link>
       <h2>{book.volumeInfo.title}</h2>
 
       <p className={styles.date}>

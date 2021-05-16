@@ -35,7 +35,9 @@ const Dashboard: React.FC = () => {
     // eslint-disable-next-line
   }, [pages]);
 
-  const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = ({
+    target,
+  }: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(target.value);
   };
 
@@ -76,7 +78,7 @@ const Dashboard: React.FC = () => {
     <section className={`container animeLeft`}>
       <Searchbar
         inputText={inputText}
-        handleChange={handleChange}
+        handleChange={handleInputChange}
         handleSubmit={handleSubmit}
       />
 
@@ -89,10 +91,9 @@ const Dashboard: React.FC = () => {
             <Button onClick={nextPage}>Avançar</Button>
           </div>
           <div className={styles.books}>
-            {booksFiltered &&
-              booksFiltered.map((book) => (
-                <BookItem key={book.id} book={book} />
-              ))}
+            {booksFiltered.map((book) => (
+              <BookItem key={book.id} book={book} />
+            ))}
           </div>
         </div>
       ) : (

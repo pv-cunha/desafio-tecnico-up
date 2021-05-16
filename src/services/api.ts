@@ -13,7 +13,10 @@ const create = () => {
       `/volumes?q=${text}&key=${KEY}&startIndex=${startIndex}&maxResults=${maxResults}`,
     );
 
-  return { getVolumes };
+  const getBookById = (volumeID: string) =>
+    apiClient.get(`/volumes/${volumeID}?${KEY}`);
+
+  return { getVolumes, getBookById };
 };
 
 const api = create();
