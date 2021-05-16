@@ -18,8 +18,8 @@ _Paulo Victor Vieira Cunha_
 
 ### `npm install`
 
-### `npm run dev`
+### `npm start`
 
-### `npm run build`
+### `npm build`
 
 Compila o aplicativo para produção na pasta `build`.<br>
