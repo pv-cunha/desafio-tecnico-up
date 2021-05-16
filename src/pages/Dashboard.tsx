@@ -5,6 +5,7 @@ import Searchbar from '../components/Searchbar';
 import BookItem from '../components/BookItem';
 import Button from '../components/Button';
 import { maxResults } from '../utils/Pagination';
+import Loading from '../components/Loading';
 
 interface ImagesLinks {
   smallThumbnail: string;
@@ -79,7 +80,7 @@ const Dashboard: React.FC = () => {
         handleSubmit={handleSubmit}
       />
 
-      {loading && <p className="loading"></p>}
+      {loading && <Loading />}
 
       {books && books.length !== 0 ? (
         <div className={styles.container}>
