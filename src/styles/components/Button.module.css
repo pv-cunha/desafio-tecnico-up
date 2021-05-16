@@ -1,0 +1,27 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #fff;
+  color: var(--purple-color);
+
+  font-size: 1rem;
+
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
+
+  cursor: pointer;
+
+  margin: 0.5rem;
+  padding: 0.4rem 1.3rem;
+
+  transition: opacity 0.2s ease-in;
+
+  outline: none;
+}
+
+.button:hover {
+  color: var(--light-color);
+  background: var(--purple-color);
+}

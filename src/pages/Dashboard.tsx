@@ -3,6 +3,8 @@ import styles from '../styles/pages/Dashboard.module.css';
 import { api } from '../services/api';
 import Searchbar from '../components/Searchbar';
 import BookItem from '../components/BookItem';
+import Button from '../components/Button';
+import { maxResults } from '../utils/Pagination';
 
 interface ImagesLinks {
   smallThumbnail: string;
@@ -23,17 +25,44 @@ interface Volumes {
 const Dashboard: React.FC = () => {
   const [inputText, setInputText] = React.useState('');
   const [books, setBooks] = React.useState<Volumes[]>([]);
+  const [pages, setPages] = React.useState<number>(0);
+  const [loading, setLoading] = React.useState(false);
+
+  React.useEffect(() => {
+    handleSubmit();
+
+    // eslint-disable-next-line
+  }, [pages]);
 
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(target.value);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
+    try {
+      setLoading(true);
 
-    await api.getVolumes(inputText).then((res) => setBooks(res.data.items));
+      await api
+        .getVolumes(inputText, pages)
+        .then((res) => setBooks(res.data.items));
+    } catch (err) {
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    setInputText('');
+  const nextPage = async () => {
+    if (pages >= 0) {
+      setPages(pages + maxResults);
+    }
+  };
+
+  const backPage = () => {
+    if (pages + maxResults === 6) {
+      setPages(0);
+    } else {
+      setPages(pages - maxResults);
+    }
   };
 
   const booksFiltered = React.useMemo(() => {
@@ -49,16 +78,27 @@ const Dashboard: React.FC = () => {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       />
-      {books.length === 0 && (
+
+      {loading && <p className="loading"></p>}
+
+      {books && books.length !== 0 ? (
+        <div className={styles.container}>
+          <div className={styles.btnPages}>
+            <Button onClick={backPage}>Voltar</Button>
+            <Button onClick={nextPage}>Avançar</Button>
+          </div>
+          <div className={styles.books}>
+            {booksFiltered &&
+              booksFiltered.map((book) => (
+                <BookItem key={book.id} book={book} />
+              ))}
+          </div>
+        </div>
+      ) : (
         <p className="lead text-center p-1">
           Nenhum livro disponível, por favor, pesquise !!
         </p>
       )}
-
-      <div className={styles.books}>
-        {booksFiltered &&
-          booksFiltered.map((book) => <BookItem key={book.id} book={book} />)}
-      </div>
     </section>
   );
 };

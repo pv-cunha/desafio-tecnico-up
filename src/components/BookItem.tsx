@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles/components/BookItem.module.css';
 import closeImg from '../assets/close.svg';
+import Button from './Button';
 
 interface ImagesLinks {
   smallThumbnail: string;
@@ -25,10 +26,14 @@ interface BookPros {
 const BookItem: React.FC<BookPros> = ({ book }) => {
   const [modalDescription, setModalDescription] = React.useState(false);
 
+  const onClick = () => {
+    setModalDescription(!modalDescription);
+  };
+
   return (
     <div className={styles.card}>
       <div>
-        {modalDescription ? (
+        {modalDescription && (
           <>
             <p className={styles.description}>
               <strong>Descrição:</strong> {book.volumeInfo.description}
@@ -41,23 +46,17 @@ const BookItem: React.FC<BookPros> = ({ book }) => {
               <img src={closeImg} alt="Close" />
             </button>
           </>
-        ) : (
-          <img
-            className={styles.img}
-            src={book.volumeInfo.imageLinks?.thumbnail}
-            alt={book.volumeInfo.title}
-          />
         )}
       </div>
+      <img
+        className={styles.img}
+        src={book.volumeInfo.imageLinks?.thumbnail}
+        alt={book.volumeInfo.title}
+      />
       <h2>{book.volumeInfo.title}</h2>
-      <button
-        type="button"
-        className={styles.btnDescription}
-        onClick={() => setModalDescription(!modalDescription)}
-      >
-        Descrição
-      </button>
+
       <p className={styles.date}>
+        <Button onClick={onClick}>Descrição</Button>
         <strong>Data de publicação: {book.volumeInfo.publishedDate}</strong>
       </p>
     </div>
