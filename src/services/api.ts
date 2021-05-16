@@ -7,10 +7,8 @@ const apiClient = axios.create({
 });
 
 const create = () => {
-  const getVolumes = () =>
-    apiClient.get(
-      `/volumes?q=bernardCornwell&key=${KEY}&startIndex=0&maxResults=5`,
-    );
+  const getVolumes = (text: string) =>
+    apiClient.get(`/volumes?q=${text}&key=${KEY}&startIndex=0&maxResults=5`);
 
   return { getVolumes };
 };

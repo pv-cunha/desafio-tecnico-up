@@ -17,6 +17,11 @@ const Navbar: React.FC = () => {
                 Home
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/books" activeClassName={styles.active}>
+                Books
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </div>
