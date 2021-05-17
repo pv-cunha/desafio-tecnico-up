@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from './layout/Button';
 import closeImg from '../assets/close.svg';
 import { useBook } from '../context/BookContext';
+import { useAlert } from '../context/AlertContext';
 
 interface ImagesLinks {
   smallThumbnail: string;
@@ -29,9 +30,16 @@ const FavoriteBookItem: React.FC<BookPros> = ({ favorite }) => {
   const [coverDescription, setCoverDescription] = React.useState(false);
 
   const { removeFavorite } = useBook();
+  const { setAlert } = useAlert();
 
   const onCover = () => {
     setCoverDescription(!coverDescription);
+  };
+
+  const noFavorite = () => {
+    removeFavorite(favorite.id);
+
+    setAlert({ description: 'Livro retirado dos favoritos !' });
   };
 
   return (
@@ -61,11 +69,7 @@ const FavoriteBookItem: React.FC<BookPros> = ({ favorite }) => {
         <Button onClick={onCover}>Descrição</Button>
         <strong>Data de publicação: {favorite.volumeInfo.publishedDate}</strong>
       </p>
-      <button
-        type="button"
-        className={styles.btn}
-        onClick={() => removeFavorite(favorite.id)}
-      >
+      <button type="button" className={styles.btn} onClick={noFavorite}>
         Remover dos favoritos
       </button>
     </div>
