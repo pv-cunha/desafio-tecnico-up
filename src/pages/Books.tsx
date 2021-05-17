@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/pages/Dashboard.module.css';
+import styles from '../styles/pages/Books.module.css';
 import { api } from '../services/api';
 import { useBook } from '../context/BookContext';
 import { maxResults } from '../utils/Pagination';
@@ -9,16 +9,8 @@ import Button from '../components/layout/Button';
 import Loading from '../components/layout/Loading';
 
 const Books: React.FC = () => {
-  const {
-    books,
-    loading,
-    setBooks,
-    setLoading,
-    text,
-    setText,
-    pages,
-    setPages,
-  } = useBook();
+  const { books, loading, setBooks, setLoading, text, pages, setPages } =
+    useBook();
 
   React.useEffect(() => {
     if (text !== '') {
@@ -35,12 +27,6 @@ const Books: React.FC = () => {
 
     // eslint-disable-next-line
   }, [text]);
-
-  const handleInputChange = ({
-    target,
-  }: React.ChangeEvent<HTMLInputElement>) => {
-    setText(target.value);
-  };
 
   const handleSubmit = async () => {
     try {
@@ -75,11 +61,7 @@ const Books: React.FC = () => {
 
   return (
     <section className={`container animeLeft`}>
-      <Searchbar
-        inputText={text}
-        handleChange={handleInputChange}
-        handleSubmit={handleSubmit}
-      />
+      <Searchbar handleSubmit={handleSubmit} />
 
       {loading && <Loading />}
 

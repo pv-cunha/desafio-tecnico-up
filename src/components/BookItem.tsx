@@ -26,31 +26,23 @@ interface BookPros {
 }
 
 const BookItem: React.FC<BookPros> = ({ book }) => {
-  const [modalDescription, setModalDescription] = React.useState(false);
+  const [coverDescription, setCoverDescription] = React.useState(false);
 
-  const { favorites, setFavorites } = useBook();
+  const { addFavorite } = useBook();
 
-  const onClick = () => {
-    setModalDescription(!modalDescription);
-  };
-
-  const handleFavorite = (book: Volume) => {
-    setFavorites([...favorites, book]);
+  const onCover = () => {
+    setCoverDescription(!coverDescription);
   };
 
   return (
     <div className={styles.card}>
       <div>
-        {modalDescription && (
+        {coverDescription && (
           <>
             <p className={styles.description}>
               <strong>Descrição:</strong> {book.volumeInfo.description}
             </p>
-            <button
-              type="button"
-              className={styles.closeBtn}
-              onClick={() => setModalDescription(!modalDescription)}
-            >
+            <button type="button" className={styles.closeBtn} onClick={onCover}>
               <img src={closeImg} alt="Close" />
             </button>
           </>
@@ -66,13 +58,13 @@ const BookItem: React.FC<BookPros> = ({ book }) => {
       <h2>{book.volumeInfo.title}</h2>
 
       <p className={styles.date}>
-        <Button onClick={onClick}>Descrição</Button>
+        <Button onClick={onCover}>Descrição</Button>
         <strong>Data de publicação: {book.volumeInfo.publishedDate}</strong>
       </p>
       <button
         type="button"
         className={styles.btn}
-        onClick={() => handleFavorite(book)}
+        onClick={() => addFavorite(book)}
       >
         Favoritar
       </button>
