@@ -3,6 +3,7 @@ import styles from '../styles/components/BookItem.module.css';
 import closeImg from '../assets/close.svg';
 import Button from './layout/Button';
 import { Link } from 'react-router-dom';
+import { useBook } from '../context/BookContext';
 
 interface ImagesLinks {
   smallThumbnail: string;
@@ -27,8 +28,14 @@ interface BookPros {
 const BookItem: React.FC<BookPros> = ({ book }) => {
   const [modalDescription, setModalDescription] = React.useState(false);
 
+  const { favorites, setFavorites } = useBook();
+
   const onClick = () => {
     setModalDescription(!modalDescription);
+  };
+
+  const handleFavorite = (book: Volume) => {
+    setFavorites([...favorites, book]);
   };
 
   return (
@@ -62,6 +69,13 @@ const BookItem: React.FC<BookPros> = ({ book }) => {
         <Button onClick={onClick}>Descrição</Button>
         <strong>Data de publicação: {book.volumeInfo.publishedDate}</strong>
       </p>
+      <button
+        type="button"
+        className={styles.btn}
+        onClick={() => handleFavorite(book)}
+      >
+        Favoritar
+      </button>
     </div>
   );
 };

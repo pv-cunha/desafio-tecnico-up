@@ -1,53 +1,52 @@
 import React from 'react';
 import styles from '../styles/pages/Dashboard.module.css';
 import { api } from '../services/api';
+import { useBook } from '../context/BookContext';
+import { maxResults } from '../utils/Pagination';
 import Searchbar from '../components/Searchbar';
 import BookItem from '../components/BookItem';
 import Button from '../components/layout/Button';
-import { maxResults } from '../utils/Pagination';
 import Loading from '../components/layout/Loading';
 
-interface ImagesLinks {
-  smallThumbnail: string;
-  thumbnail: string;
-}
-
-interface Volumes {
-  id: string;
-  volumeInfo: {
-    title: string;
-    description: string;
-    infoLink: string;
-    publishedDate: string;
-    imageLinks?: ImagesLinks;
-  };
-}
-
 const Books: React.FC = () => {
-  const [inputText, setInputText] = React.useState('');
-  const [books, setBooks] = React.useState<Volumes[]>([]);
-  const [pages, setPages] = React.useState<number>(0);
-  const [loading, setLoading] = React.useState(false);
+  const {
+    books,
+    loading,
+    setBooks,
+    setLoading,
+    text,
+    setText,
+    pages,
+    setPages,
+  } = useBook();
 
   React.useEffect(() => {
-    handleSubmit();
+    if (text !== '') {
+      handleSubmit();
+    }
 
     // eslint-disable-next-line
   }, [pages]);
 
+  React.useEffect(() => {
+    if (text === '') {
+      setPages(0);
+    }
+
+    // eslint-disable-next-line
+  }, [text]);
+
   const handleInputChange = ({
     target,
   }: React.ChangeEvent<HTMLInputElement>) => {
-    setInputText(target.value);
+    setText(target.value);
   };
 
   const handleSubmit = async () => {
     try {
       setLoading(true);
 
-      await api
-        .getVolumes(inputText, pages)
-        .then((res) => setBooks(res.data.items));
+      await api.getVolumes(text, pages).then((res) => setBooks(res.data.items));
     } catch (err) {
     } finally {
       setLoading(false);
@@ -60,7 +59,7 @@ const Books: React.FC = () => {
     }
   };
 
-  const backPage = () => {
+  const returnPage = () => {
     if (pages + maxResults === 6) {
       setPages(0);
     } else {
@@ -77,7 +76,7 @@ const Books: React.FC = () => {
   return (
     <section className={`container animeLeft`}>
       <Searchbar
-        inputText={inputText}
+        inputText={text}
         handleChange={handleInputChange}
         handleSubmit={handleSubmit}
       />
@@ -87,7 +86,7 @@ const Books: React.FC = () => {
       {books && books.length !== 0 ? (
         <div className={styles.container}>
           <div className={styles.btnPages}>
-            <Button onClick={backPage}>Voltar</Button>
+            <Button onClick={returnPage}>Voltar</Button>
             <Button onClick={nextPage}>Avançar</Button>
           </div>
           <div className={styles.books}>

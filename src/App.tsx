@@ -3,12 +3,15 @@ import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import Router from './routes';
 import Navbar from './components/layout/Navbar';
+import AppProvider from './context';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Router />
+      <AppProvider>
+        <Navbar />
+        <Router />
+      </AppProvider>
     </BrowserRouter>
   );
 };

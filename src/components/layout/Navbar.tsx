@@ -47,6 +47,11 @@ const Navbar: React.FC = () => {
                 Books
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/favorites" activeClassName={styles.active}>
+                Favoritos
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </div>
