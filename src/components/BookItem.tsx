@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/components/BookItem.module.css';
 import closeImg from '../assets/close.svg';
-import Button from './Button';
+import Button from './layout/Button';
 import { Link } from 'react-router-dom';
 
 interface ImagesLinks {

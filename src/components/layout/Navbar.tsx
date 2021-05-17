@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import styles from '../styles/components/Navbar.module.css';
-import useMedia from '../hooks/useMedia';
+import useMedia from '../../hooks/useMedia';
+import styles from '../../styles/components/layout/Navbar.module.css';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] =

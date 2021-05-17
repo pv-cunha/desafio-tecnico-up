@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/components/Loading.module.css';
+import styles from '../../styles/components/layout/Loading.module.css';
 
 const Loading: React.FC = () => {
   return (

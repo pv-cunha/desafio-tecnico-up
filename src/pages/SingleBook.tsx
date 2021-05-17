@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from '../styles/components/SingleBook.module.css';
+import styles from '../styles/pages/SingleBook.module.css';
 import { useParams } from 'react-router';
 import { api } from '../services/api';
-import Button from '../components/Button';
 import { Link } from 'react-router-dom';
 
 interface ImageLink {

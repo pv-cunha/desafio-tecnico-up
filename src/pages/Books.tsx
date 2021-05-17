@@ -3,9 +3,9 @@ import styles from '../styles/pages/Dashboard.module.css';
 import { api } from '../services/api';
 import Searchbar from '../components/Searchbar';
 import BookItem from '../components/BookItem';
-import Button from '../components/Button';
+import Button from '../components/layout/Button';
 import { maxResults } from '../utils/Pagination';
-import Loading from '../components/Loading';
+import Loading from '../components/layout/Loading';
 
 interface ImagesLinks {
   smallThumbnail: string;
@@ -23,7 +23,7 @@ interface Volumes {
   };
 }
 
-const Dashboard: React.FC = () => {
+const Books: React.FC = () => {
   const [inputText, setInputText] = React.useState('');
   const [books, setBooks] = React.useState<Volumes[]>([]);
   const [pages, setPages] = React.useState<number>(0);
@@ -105,4 +105,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Books;

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/components/Button.module.css';
+import styles from '../../styles/components/layout/Button.module.css';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
