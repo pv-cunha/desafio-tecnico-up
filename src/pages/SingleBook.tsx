@@ -29,7 +29,7 @@ const SingleBook: React.FC = () => {
   }, [id]);
 
   return (
-    <section className="container">
+    <section className="container animeLeft">
       <div className={styles.bookHeader}>
         <h1 className="title">{book.title}</h1>
         <Link className={styles.link} to="/books">
@@ -40,28 +40,42 @@ const SingleBook: React.FC = () => {
       <div className={styles.bookContent}>
         <img src={book.imageLinks?.thumbnail} alt={book.title} />
         <div>
-          <p>
-            <strong>Autor:</strong> {book.authors};
-          </p>
-          <p>
-            <strong>Idioma:</strong> {book.language};
-          </p>
-          <p>
-            <strong>Categorias:</strong> {book.categories};
-          </p>
-          <p>
-            <strong>Publicado em:</strong> {book.publishedDate};
-          </p>
-          <p>
-            <strong>Para comprar, clique no link: </strong>{' '}
-            <a className={styles.previewLink} href={book.previewLink}>
-              {book.title}
-            </a>
-            ;
-          </p>
-          <p>
-            <strong>Descrição: </strong> {book.description}
-          </p>
+          <ul>
+            <li>
+              <p>
+                <strong>Autor:</strong> {book.authors};
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Idioma:</strong> {book.language};
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Categorias:</strong> {book.categories};
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Publicado em:</strong> {book.publishedDate};
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Para comprar, clique no link: </strong>{' '}
+                <a className={styles.previewLink} href={book.previewLink}>
+                  {book.title}
+                </a>
+                ;
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Descrição: </strong> {book.description}
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
     </section>

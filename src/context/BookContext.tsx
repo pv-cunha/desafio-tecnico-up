@@ -27,6 +27,8 @@ interface BookContextData {
   setText: React.Dispatch<React.SetStateAction<string>>;
   pages: number;
   setPages: React.Dispatch<React.SetStateAction<number>>;
+  addFavorite: (book: Volume) => void;
+  removeFavorite: (id: string) => void;
 }
 
 const BookContext = React.createContext<BookContextData>({} as BookContextData);
@@ -48,6 +50,14 @@ const BookProvider: React.FC = ({ children }) => {
   const [loading, setLoading] = React.useState<boolean>(false);
   const [pages, setPages] = React.useState<number>(0);
 
+  const addFavorite = (book: Volume) => {
+    setFavorites([...favorites, book]);
+  };
+
+  const removeFavorite = (id: string) => {
+    setFavorites(favorites.filter((favorite) => favorite.id !== id));
+  };
+
   return (
     <BookContext.Provider
       value={{
@@ -61,6 +71,8 @@ const BookProvider: React.FC = ({ children }) => {
         setText,
         pages,
         setPages,
+        addFavorite,
+        removeFavorite,
       }}
     >
       {children}

@@ -1,29 +1,31 @@
 import React from 'react';
+import { useBook } from '../context/BookContext';
 import styles from '../styles/components/Searchbar.module.css';
 import Button from './layout/Button';
 
 interface SearchbarProps {
-  inputText: string;
   loading?: boolean;
-  handleChange: ({ target }: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: () => Promise<void>;
 }
 
-const Searchbar: React.FC<SearchbarProps> = ({
-  inputText,
-  handleChange,
-  handleSubmit,
-  loading,
-}) => {
+const Searchbar: React.FC<SearchbarProps> = ({ handleSubmit, loading }) => {
+  const { text, setText } = useBook();
+
+  const handleInputChange = ({
+    target,
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setText(target.value);
+  };
+
   return (
     <div className={styles.searchBar}>
       <div className={styles.form}>
         <input
           type="text"
-          placeholder="Digite aqui o título do livro ..."
+          placeholder="Digite aqui seu livro ..."
           className={styles.input}
-          value={inputText}
-          onChange={handleChange}
+          value={text}
+          onChange={handleInputChange}
         />
         <Button loading={loading} onClick={handleSubmit}>
           Pesquisar

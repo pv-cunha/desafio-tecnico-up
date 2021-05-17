@@ -16,7 +16,7 @@
   margin: 0.5rem;
   padding: 0.4rem 1.3rem;
 
-  transition: opacity 0.2s ease-in;
+  transition: all 0.2s ease-in;
 
   outline: none;
 }
