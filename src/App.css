@@ -27,7 +27,7 @@ body {
 
   padding-top: 4rem;
 
-  min-height: 100vh;
+  min-height: calc(100vh + 5rem);
 }
 
 a {
@@ -55,6 +55,8 @@ img {
   max-width: 65rem;
   padding: 0 1rem;
   margin: 0 auto;
+
+  min-height: calc(100vh + 5rem);
 }
 
 .mainContainer {
