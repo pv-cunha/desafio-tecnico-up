@@ -4,6 +4,7 @@ import closeImg from '../assets/close.svg';
 import Button from './layout/Button';
 import { Link } from 'react-router-dom';
 import { useBook } from '../context/BookContext';
+import { useAlert } from '../context/AlertContext';
 
 interface ImagesLinks {
   smallThumbnail: string;
@@ -29,9 +30,16 @@ const BookItem: React.FC<BookPros> = ({ book }) => {
   const [coverDescription, setCoverDescription] = React.useState(false);
 
   const { addFavorite } = useBook();
+  const { setAlert } = useAlert();
 
   const onCover = () => {
     setCoverDescription(!coverDescription);
+  };
+
+  const setFavorite = () => {
+    addFavorite(book);
+
+    setAlert({ description: 'Livro favoritado !' });
   };
 
   return (
@@ -61,11 +69,7 @@ const BookItem: React.FC<BookPros> = ({ book }) => {
         <Button onClick={onCover}>Descrição</Button>
         <strong>Data de publicação: {book.volumeInfo.publishedDate}</strong>
       </p>
-      <button
-        type="button"
-        className={styles.btn}
-        onClick={() => addFavorite(book)}
-      >
+      <button type="button" className={styles.btn} onClick={setFavorite}>
         Favoritar
       </button>
     </div>

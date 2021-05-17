@@ -50,13 +50,15 @@ const BookProvider: React.FC = ({ children }) => {
   const [loading, setLoading] = React.useState<boolean>(false);
   const [pages, setPages] = React.useState<number>(0);
 
-  const addFavorite = (book: Volume) => {
-    setFavorites([...favorites, book]);
-  };
+  const addFavorite = React.useCallback((book: Volume) => {
+    setFavorites((favorites) => [...favorites, book]);
+  }, []);
 
-  const removeFavorite = (id: string) => {
-    setFavorites(favorites.filter((favorite) => favorite.id !== id));
-  };
+  const removeFavorite = React.useCallback((id: string) => {
+    setFavorites((favorites) =>
+      favorites.filter((favorite) => favorite.id !== id),
+    );
+  }, []);
 
   return (
     <BookContext.Provider
